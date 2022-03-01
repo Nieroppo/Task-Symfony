@@ -1,0 +1,43 @@
+controllers:
+    resource: ../src/Controller/
+    type: annotation
+
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
+
+tasks:
+    path: /
+    controller: App\Controller\TaskController::index
+
+myTasks:
+    path: /mytask
+    controller: App\Controller\TaskController::myTasks
+    
+register:
+    path: /register
+    controller: App\Controller\UserController::Register
+
+login:
+    path: /login
+    controller: App\Controller\UserController::login
+
+logout:
+    path: /logout
+    
+createtask:
+    path: /createtask
+    controller: App\Controller\TaskController::create
+
+   
+task_detail:
+    path: /task/{id}
+    controller: App\Controller\TaskController::detail
+
+editTask:
+    path: /edit/{id}
+    controller: App\Controller\TaskController::edit
+
+deleteTask:
+    path: /delete/{id}
+    controller: App\Controller\TaskController::deleteTask

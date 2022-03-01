@@ -1,0 +1,22 @@
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Priority</th>
+            <th>Hours</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.title }}</td>
+                <td>{{ task.priority }}</td>
+                <td>{{ task.hours }} </td>
+                <td class="button">
+                    <button type="button" class="btn-view"><a href="{{ path('task_detail', {'id': task.id} )}}">View</a></button>
+                    {% if task.user.id == app.user.id %}
+                        <button type="button" class="btn-edit"><a href="{{ path('editTask', {'id': task.id} )}}">Edit</a></button>
+                        <button type="button" class="btn-delete"><a href="{{ path('deleteTask', {'id': task.id} )}}">Delete</a></button>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
